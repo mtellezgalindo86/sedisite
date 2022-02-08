@@ -65,6 +65,10 @@ Route::get('/videoteca',[VideotecaController::class,'getlist'])->name('videoteca
 Route::get('/contacto', [ContactoController::class,'contacto'])->name('contacto');
 Route::post('/post-contact', [ContactoController::class,'postContact'])->name('post-contact');
 Route::get('/gracias', [ContactoController::class,'thankyou'])->name('gracias');
+
+
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
