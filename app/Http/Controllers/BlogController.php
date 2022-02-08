@@ -12,7 +12,7 @@ class BlogController extends Controller
     public function index()
     {
         
-        $posts = Post::paginate(5);
+        $posts = Post::paginate(3);
         return view('blog.blog')->with('posts',$posts);
     }
 
