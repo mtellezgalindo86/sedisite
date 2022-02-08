@@ -73,6 +73,6 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-Route::prefix('sediadministrador')->name('sediadministrador.')->middleware('auth')->group(function(){
+Route::prefix('sediadministrador')->name('sediadministrador.')->middleware(['auth','isadmin'])->group(function(){
     Route::get('/',[DashboardController::class, 'index'])->name('sediadministrador.index');
 });
