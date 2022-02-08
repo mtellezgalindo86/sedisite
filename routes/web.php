@@ -11,9 +11,10 @@ use App\Http\Controllers\ServiciosController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\VideotecaController;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\ProgramasController;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AdminController\DashboardController;
 //home
 Route::get('/', [WelcomeController::class, 'index'])->name('home');
 
@@ -67,4 +68,11 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+
+
+
 require __DIR__.'/auth.php';
+
+Route::prefix('sediadministrador')->name('sediadministrador.')->middleware('auth')->group(function(){
+    Route::get('/',[DashboardController::class, 'index'])->name('sediadministrador.index');
+});
