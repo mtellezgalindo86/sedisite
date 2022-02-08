@@ -11,14 +11,7 @@ use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
+
 */
 
 
@@ -72,3 +65,8 @@ Route::get('/videoteca',[VideotecaController::class,'getlist'])->name('videoteca
 Route::get('/contacto', [ContactoController::class,'contacto'])->name('contacto');
 Route::post('/post-contact', [ContactoController::class,'postContact'])->name('post-contact');
 Route::get('/gracias', [ContactoController::class,'thankyou'])->name('gracias');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
