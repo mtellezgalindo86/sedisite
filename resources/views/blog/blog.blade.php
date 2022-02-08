@@ -1,26 +1,70 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
-        <x-main.header></x-main.header>
-        <!-- Styles -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    </head>
-    <body>
-        <x-main.preloader></x-main.preloader>
-        <x-main.navbar></x-main.navbar>
-        <x-blog.bannermainblog></x-blog.bannermainblog>
-        <x-blog.mainsectionblog></x-blog.mainsectionblog>
-        <x-main.footer></x-main.footer>
-        <x-main.footerarea></x-main.footerarea>
-        <x-main.copyarea></x-main.copyarea>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
+    <x-main.header></x-main.header>
+    <!-- Styles -->
 
-        <x-main.gotop></x-main.gotop>
+</head>
+
+<body>
+    <x-main.preloader></x-main.preloader>
+    <x-main.navbar></x-main.navbar>
+    <x-blog.bannermainblog></x-blog.bannermainblog>
+    <section class="blog-area pt-100 pb-70">
+        <div class="container">
+            <div class="section-title">
+                <h2><label class="newtitle">Nuestro Blog</label></h2>
+            </div>
+
+            <div class="row">
+                @foreach ($posts as $post)
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-blog-item">
+                        <div class="blog-image">
+                            <a href="#">
+                                <img src="{{$post->image->path}}" alt="image">
+                            </a>
+                        </div>
+
+                        <div class="blog-content">
+                            <ul class="post-meta">
+                                <li>
+                                    <span>Escrito:</span>
+                                    <a href="#">{{$post->author->name}}</a>
+                                </li>
+                                <li>
+                                    <span>Fecha:</span>
+                                   {{$post->created_at}}
+                                </li>
+                            </ul>
+                            <h3>
+                                <a href="blog-details.html">{{$post->title}}</a>
+                            </h3>
+                            <p>{{$post->excerpt}}</p>
+
+                            <div class="blog-btn">
+                                <a href="{{route('blog-detail')}}" class="default-btn">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
         </div>
-    </body>
-    
+    </section>
+
+    <x-main.footer></x-main.footer>
+    <x-main.footerarea></x-main.footerarea>
+    <x-main.copyarea></x-main.copyarea>
+
+    <x-main.gotop></x-main.gotop>
+    </div>
+</body>
+
 </html>

@@ -16,11 +16,14 @@ class ImageFactory extends Factory
 
     public function definition()
     {
+        $fake_image = [
+            'valores.jpg'
+        ];
         return [
             //
             'name' => $this->faker->word(),
             'extension' => 'jpg',
-            'path' => '/public/images'. $this->faker->word().'.'.'jpg',
+            'path' => 'assets/img/'. $this->faker->randomElement($fake_image)
 
 
         ];
