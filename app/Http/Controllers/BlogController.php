@@ -16,11 +16,14 @@ class BlogController extends Controller
         return view('blog.blog')->with('posts',$posts);
     }
 
-    public function detail()
+    public function show(Post $post)
     {   
         $categories = Category::latest()->take(6)->get();
         $recent_posts = Post::latest()->take(6)->get();
         $tags = Tag::all();
-        return view('blog.detailblog')->with('recent_posts',$recent_posts)->with('categories', $categories)->with('tags', $tags);
+        return view('blog.detailblog')
+                ->with('recent_posts',$recent_posts)
+                ->with('categories', $categories)
+                ->with('tags', $tags)->with('post', $post);
     }
 }

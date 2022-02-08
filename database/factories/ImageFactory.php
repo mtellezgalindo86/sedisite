@@ -23,7 +23,7 @@ class ImageFactory extends Factory
             //
             'name' => $this->faker->word(),
             'extension' => 'jpg',
-            'path' => 'assets/img/'. $this->faker->randomElement($fake_image)
+            'path' => '../assets/img/'. $this->faker->randomElement($fake_image)
 
 
         ];

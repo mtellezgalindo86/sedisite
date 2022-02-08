@@ -4,18 +4,14 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactoController;
 use App\Http\Controllers\ConveniosAlianzasController;
 use App\Http\Controllers\ModeloEducativoController;
+use App\Http\Controllers\PostsController;
 use App\Http\Controllers\QuienesSomosController;
 use App\Http\Controllers\ServiciosController;
 use App\Http\Controllers\VideotecaController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
-/*
-
-*/
-
-
-
+//home
 Route::get('/', [WelcomeController::class, 'index'])->name('home');
 
 //Quienes somos
@@ -32,8 +28,9 @@ Route::get('/educacion-positiva',[ModeloEducativoController::class, 'educacionpo
 Route::get('/educacion-en-valores', [ModeloEducativoController::class,'educacionenvalores'])->name('educacion-en-valores');
 Route::get('/disciplina-personal', [ModeloEducativoController::class,'disciplinapersonal'])->name('disciplina-personal');
 Route::get('/inteligencia-emocional', [ModeloEducativoController::class,'inteligenciaemocional'])->name('inteligencia-emocional');
+Route::get('/perfil-de-egresado',[ModeloEducativoController::class,'perfilEgresado'])->name('perfil-de-egresado');
 
-Route::get('/perfil-de-egresado', [ModeloEducativoController::class,'perfilEgresado'])->name('perfil-de-egresado');
+
 //Programas
 Route::get('/programas-de-desarollo-y-cuidado-infantil-guarderia-kinder', [ProgramasController::class, 'programasdesarrollo'])->name('programas-de-desarollo-y-cuidado-infantil-guarderia-kinder');
 Route::get('/after-school', [ProgramasController::class, 'afterschool'])->name('after-school');
@@ -46,28 +43,21 @@ Route::get('/filtro-diario-de-salud', [ServiciosController::class,'filtro'])->na
 Route::get('/servicios-de-video-permanente', [ServiciosController::class,'videopermanente'])->name('servicios-de-video-permanente');
 Route::get('/servicios-de-transporte', [ServiciosController::class,'transporte'])->name('servicios-de-transporte');
 
-
 //Convenios y alianzas
 Route::get('/convenios-con-empresas', [ConveniosAlianzasController::class,'convenios'])->name('convenios-con-empresas');
 Route::get('/alianzas-con-instituciones-educativas', [ConveniosAlianzasController::class,'alianzas'])->name('alianzas-con-instituciones-educativas');
 
 //Blog
 Route::get('/blog', [BlogController::class,'index'])->name('blog');
-
-Route::get('/blog-detail',[BlogController::class,'detail'])->name('blog-detail');
-
+Route::get('/posts/{post:slug}',[PostsController::class,'show'])->name('posts.show');
 
 //Videoteca
 Route::get('/videoteca',[VideotecaController::class,'getlist'])->name('videoteca');
-
 
 //Contacto
 Route::get('/contacto', [ContactoController::class,'contacto'])->name('contacto');
 Route::post('/post-contact', [ContactoController::class,'postContact'])->name('post-contact');
 Route::get('/gracias', [ContactoController::class,'thankyou'])->name('gracias');
-
-
-
 
 Route::get('/dashboard', function () {
     return view('dashboard');

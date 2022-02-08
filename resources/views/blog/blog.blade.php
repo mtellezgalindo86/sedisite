@@ -15,49 +15,54 @@
 <body>
     <x-main.preloader></x-main.preloader>
     <x-main.navbar></x-main.navbar>
-    <x-blog.bannermainblog></x-blog.bannermainblog>
+    <x-blog.bannermainblog ></x-blog.bannermainblog>
     <section class="blog-area pt-100 pb-70">
         <div class="container">
             <div class="section-title">
                 <h2><label class="newtitle">Nuestro Blog</label></h2>
             </div>
-
             <div class="row">
-                @foreach ($posts as $post)
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-blog-item">
-                        <div class="blog-image">
-                            <a href="#">
-                                <img src="{{$post->image->path}}" alt="image">
-                            </a>
-                        </div>
+                @if (!count($posts))
+                    <h4><label class="newtitle">No hay post por mostrar</label></h4>
+                @else
+                    @foreach ($posts as $post)
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-blog-item">
+                            <div class="blog-image">
+                                <a href="{{route('posts.show',  $post)}}">
+                                    <img src="{{$post->image->path}}" alt="image">
+                                </a>
+                            </div>
 
-                        <div class="blog-content">
-                            <ul class="post-meta">
-                                <li>
-                                    <span>Escrito:</span>
-                                    <a href="#">{{$post->author->name}}</a>
-                                </li>
-                                <li>
-                                    <span>Fecha:</span>
-                                    {{$post->created_at}}
-                                </li>
-                            </ul>
-                            <h3>
-                                <a href="blog-details.html">{{\Str::limit($post->title, 20)}}</a>
-                            </h3>
-                            <p>{{\Str::limit($post->excerpt, 30)}}</p>
+                            <div class="blog-content">
+                                <ul class="post-meta">
+                                    <li>
+                                        <span>Escrito:</span>
+                                        <a href="#">{{$post->author->name}}</a>
+                                    </li>
+                                    <li>
+                                        <span>Fecha:</span>
+                                        {{$post->created_at}}
+                                    </li>
+                                </ul>
+                                <h3>
+                                    <a href="#">{{\Str::limit($post->title, 20)}}</a>
+                                </h3>
+                                <p>{{\Str::limit($post->excerpt, 30)}}</p>
 
-                            <div class="blog-btn">
-                                <a href="{{route('blog-detail')}}" class="default-btn">Read More</a>
+                                <div class="blog-btn">
+                                    <a href="{{route('posts.show', $post)}}" class="default-btn">Leer...</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                @endforeach
-                
-                {{$posts->links()}}
+                    @endforeach
+                     {{$posts->links()}}
+                @endif
+               
             </div>
+        </div>
+
         </div>
     </section>
 
