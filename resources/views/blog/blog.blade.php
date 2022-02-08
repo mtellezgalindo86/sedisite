@@ -40,13 +40,13 @@
                                 </li>
                                 <li>
                                     <span>Fecha:</span>
-                                   {{$post->created_at}}
+                                    {{$post->created_at}}
                                 </li>
                             </ul>
                             <h3>
-                                <a href="blog-details.html">{{$post->title}}</a>
+                                <a href="blog-details.html">{{\Str::limit($post->title, 20)}}</a>
                             </h3>
-                            <p>{{$post->excerpt}}</p>
+                            <p>{{\Str::limit($post->excerpt, 30)}}</p>
 
                             <div class="blog-btn">
                                 <a href="{{route('blog-detail')}}" class="default-btn">Read More</a>
@@ -55,6 +55,21 @@
                     </div>
                 </div>
                 @endforeach
+                <div class="col-lg-12 col-md-12">
+                    <div class="pagination-area">
+                        <a href="#" class="prev page-numbers">
+                            <i class='bx bx-chevron-left'></i>
+                        </a>
+                        <a href="#" class="page-numbers">1</a>
+                        <span class="page-numbers current" aria-current="page">2</span>
+                        <a href="#" class="page-numbers">3</a>
+                        <a href="#" class="page-numbers">4</a>
+                        <a href="#" class="next page-numbers">
+                            <i class='bx bx-chevron-right'></i>
+                        </a>
+                    </div>
+                </div>
+                {{$posts->links()}}
             </div>
         </div>
     </section>
