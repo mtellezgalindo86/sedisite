@@ -38,10 +38,10 @@ class DatabaseSeeder extends Seeder
         }
 
 
-        \App\Models\Category::factory(10)->create();
-        $posts = \App\Models\Post::factory(10)->create();
-        \App\Models\Comment::factory(100)->create();
-        \App\Models\Tag::factory(10)->create();
+        \App\Models\Category::factory(5)->create();
+        $posts = \App\Models\Post::factory(103)->create();
+        \App\Models\Comment::factory(10)->create();
+        \App\Models\Tag::factory(5)->create();
 
         foreach ($posts as $post) {
             $tags_ids = [];

@@ -1,14 +1,17 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactoController;
 use App\Http\Controllers\ConveniosAlianzasController;
 use App\Http\Controllers\ModeloEducativoController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\QuienesSomosController;
 use App\Http\Controllers\ServiciosController;
+use App\Http\Controllers\TagController;
 use App\Http\Controllers\VideotecaController;
 use App\Http\Controllers\WelcomeController;
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
 //home
@@ -50,7 +53,8 @@ Route::get('/alianzas-con-instituciones-educativas', [ConveniosAlianzasControlle
 //Blog
 Route::get('/blog', [BlogController::class,'index'])->name('blog');
 Route::get('/posts/{post:slug}',[PostsController::class,'show'])->name('posts.show');
-
+Route::get('/categories/{category:slug}',[CategoryController::class,'show'])->name('categories.show');
+Route::get('/tags/{tag:name}',[TagController::class,'show'])->name('tags.show');
 //Videoteca
 Route::get('/videoteca',[VideotecaController::class,'getlist'])->name('videoteca');
 
