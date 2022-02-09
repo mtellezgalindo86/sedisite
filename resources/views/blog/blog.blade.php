@@ -30,7 +30,7 @@
                         <div class="single-blog-item">
                             <div class="blog-image">
                                 <a href="{{route('posts.show',  $post)}}">
-                                    <img src="{{$post->image->path}}" alt="image">
+                                    <img src="{{asset('storage/'.$post->image->path.'')}}" alt="image">
                                 </a>
                             </div>
 

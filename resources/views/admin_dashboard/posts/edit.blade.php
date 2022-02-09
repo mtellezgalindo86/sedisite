@@ -1,17 +1,11 @@
 @extends("admin_dashboard.layouts.app")
 
 @section("style")
-<link href="{{asset('admin_dashboard/plugins/Drag-And-Drop/dist/imageuploadify.min.css')}}" rel="stylesheet" />
 <link href="{{asset('admin_dashboard/plugins/select2/css/select2.min.css')}}" rel="stylesheet" />
 <link href="{{asset('admin_dashboard/plugins/select2/css/select2-bootstrap4.css')}}" rel="stylesheet" />
 <script src="https://cdn.tiny.cloud/1/049cbc9th46j9z79vcr32zy3h680sweynpzmfkosfv1fdx2o/tinymce/5/tinymce.min.js" 
 referrerpolicy="origin"></script>
-<style>
-    .imageuploadify{
-        margin: 0;
-        max-width: 100%;
-    }
-</style>
+
 @endsection
 
 @section("wrapper")
@@ -20,7 +14,7 @@ referrerpolicy="origin"></script>
     <div class="page-content">
         <!--breadcrumb-->
         <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-            <div class="breadcrumb-title pe-3">Blog</div>
+            <div class="breadcrumb-title pe-3">Post</div>
             <div class="ps-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0 p-0">
@@ -35,31 +29,32 @@ referrerpolicy="origin"></script>
 
         <div class="card">
             <div class="card-body p-4">
-                <h5 class="card-title">Agregar nuevos post</h5>
+                <h5 class="card-title">Editar post: {{$post->title}}</h5>
                 <hr />
-                <form action="{{route('sediadministrador.posts.store')}}" method="post" enctype="multipart/form-data">
+                <form action="{{route('sediadministrador.posts.update', $post)}}" method="post" enctype="multipart/form-data">
                     @csrf
+                    @method('PATCH')
                     <div class="form-body mt-4">
                         <div class="row">
                             <div class="col-lg-8">
                                 <div class="border border-3 p-4 rounded">
                                     <div class="mb-3">
                                         <label for="inputProductTitle" class="form-label">Titulo del post</label>
-                                        <input type="text" name="title" value='{{old("title")}}' class="form-control" id="inputProductTitle" placeholder="Enter product title">
+                                        <input type="text" name="title" value='{{old("title", $post->title)}}' class="form-control" id="inputProductTitle" placeholder="Enter product title">
                                         @error('title')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>
                                     <div class="mb-3">
                                         <label for="inputProductTitle" class="form-label">Subtitulo del post</label>
-                                        <input type="text" name="slug"  value='{{old("slug")}}' class="form-control" id="inputProductTitle" placeholder="Enter product title">
-                                        @error('slug')
+                                        <input type="text" name="slug"  value='{{old("slug", $post->slug)}}' class="form-control" id="inputProductTitle" placeholder="Enter product title">
+                                        @error('slug'),
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>
                                     <div class="mb-3">
                                         <label for="inputProductDescription" class="form-label">Post extracto</label>
-                                        <textarea class="form-control"   name="excerpt" id="inputProductDescription" rows="3">{{old("excerpt")}}</textarea>
+                                        <textarea class="form-control"   name="excerpt" id="inputProductDescription" rows="3">{{old("excerpt", $post->excerpt)}}</textarea>
                                         @error('excerpt')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
@@ -67,13 +62,13 @@ referrerpolicy="origin"></script>
                                     <div class="mb-3">
                                         <label for="inputProductDescription" class="form-label">Post categoria</label>
                                         <div class="card">
-                                            <div class="card-body">
+                                            <div class="card-body"> 
                                                 <div class="border p-3 rounded">
                                                     <div class="mb-3">
                                                         <label class="form-label"></label>
                                                         <select name="category_id" class="single-select">
                                                             @foreach ($categories as $key=>$category)
-                                                            <option value="{{$key}}">{{$category}}</option>
+                                                            <option {{$post->category_id === $key ? 'selected': ''}} value="{{$key}}">{{$category}}</option>
                                                             @endforeach
 
                                                         </select>
@@ -86,28 +81,48 @@ referrerpolicy="origin"></script>
                                         </div>
                                     </div>
                                     <div class="mb-3">
-                                        <div class="card">
-                                            <div class="card-body">
-                                            <label for="inputProductDescription" class="form-label">Miniatura de post</label>
-                                            <input id="thumbnail" required  name="thumbnail" id="file" type="file" >
-                                            @error('thumbnail')
-                                                <p class="text-danger">{{$message}}</p>
-                                            @enderror
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                    <label for="inputProductDescription" class="form-label">Miniatura de post</label>
+                                                    <input id="thumbnail"   name="thumbnail" id="file" type="file" >
+                                                    @error('thumbnail')
+                                                        <p class="text-danger">{{$message}}</p>
+                                                    @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <img src="{{asset('storage/'.$post->image->path.'')}}" width="100%" class="img-responsive" alt="">
                                             </div>
                                         </div>
+                                        
                                         
                                     </div>
                                     <div class="mb-3">
                                         <label for="inputProductDescription" class="form-label">Texto</label>
-                                        <textarea class="form-control" name="body" id="post_content" rows="3"> {{old("excerpt")}}</textarea>
+                                        <textarea class="form-control" name="body" id="post_content" rows="3"> {{old("body", $post->body)}}</textarea>
                                         @error('body')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>
-                                    <div class="col-12">
-									  <div class="d-grid">
-                                         <button type="submit" class="btn btn-primary">Guardar</button>
-									  </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="d-grid">
+                                                <button type="submit" class="btn btn-primary">Actualizar</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="d-grid">
+                                                <form action="{{route('sediadministrador.posts.destroy', $post)}}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
 								  </div>
                                 </div>
                             </div>
@@ -125,13 +140,10 @@ referrerpolicy="origin"></script>
 @endsection
 
 @section("script")
-<script src="{{asset('admin_dashboard/plugins/Drag-And-Drop/dist/imageuploadify.min.js')}}"></script>
 <script src="{{asset('admin_dashboard/plugins/select2/js/select2.min.js')}}"></script>
 
 <script>
-    $(document).ready(function() {
-        $('#thumbnail').imageuploadify();
-    });
+
     $('.single-select').select2({
         theme: 'bootstrap4',
         width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
@@ -206,7 +218,7 @@ referrerpolicy="origin"></script>
     });
     setTimeout(()=>{
         $(".general-message").fadeOut();
-    },500);
+    },1000);
 
 
 </script>

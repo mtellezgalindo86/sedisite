@@ -27,8 +27,20 @@
     <link rel="stylesheet" href="{{asset('admin_dashboard/css/header-colors.css')}}" />
     <title>Rocker - Bootstrap 5 Admin Dashboard Template</title>
 </head>
-
+    <style>
+        .general-message{
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            z-index: 5;
+            border-radius: 50px;
+            min-width: 500px;
+        }
+    </style>
 <body>
+    @if(Session::has('success'))
+        <div class="general-message alert alert-info">{{Session::get('success')}}</div>
+    @endif
 	<!--wrapper-->
 	<div class="wrapper">
 		<!--start header -->
