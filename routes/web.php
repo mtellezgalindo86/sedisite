@@ -15,6 +15,9 @@ use App\Http\Controllers\ProgramasController;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController\DashboardController;
+use App\Http\Controllers\AdminController\AdminPostsController;
+use App\Http\Controllers\AdminController\TinyMCEController;
+
 //home
 Route::get('/', [WelcomeController::class, 'index'])->name('home');
 
@@ -75,4 +78,6 @@ require __DIR__.'/auth.php';
 
 Route::prefix('sediadministrador')->name('sediadministrador.')->middleware(['auth','isadmin'])->group(function(){
     Route::get('/',[DashboardController::class, 'index'])->name('sediadministrador.index');
+    Route::resource('/posts', AdminPostsController::class);
+    Route::post('/upload_tintymce_image', [TinyMCEController::class, 'upload_tinymce_image'])->name('upload_tinymce_image');
 });
