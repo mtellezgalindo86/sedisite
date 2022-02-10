@@ -3,6 +3,8 @@
 @section("style")
 <link href="{{asset('admin_dashboard/plugins/select2/css/select2.min.css')}}" rel="stylesheet" />
 <link href="{{asset('admin_dashboard/plugins/select2/css/select2-bootstrap4.css')}}" rel="stylesheet" />
+<link href="{{asset('admin_dashboard/plugins/input-tags/css/tagsinput.css')}}" rel="stylesheet" />
+
 <script src="https://cdn.tiny.cloud/1/049cbc9th46j9z79vcr32zy3h680sweynpzmfkosfv1fdx2o/tinymce/5/tinymce.min.js" 
 referrerpolicy="origin"></script>
 
@@ -81,6 +83,18 @@ referrerpolicy="origin"></script>
                                         </div>
                                     </div>
                                     <div class="mb-3">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="border p-3 rounded">
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Tags</label>
+                                                        <input type="text" class="form-control" value="{{$tags}}" data-role="tagsinput" name="tags">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
                                         <div class="row">
                                             <div class="col-md-8">
                                                 <div class="card">
@@ -115,11 +129,11 @@ referrerpolicy="origin"></script>
                                         </div>
                                         <div class="col-6">
                                             <div class="d-grid">
-                                                <form action="{{route('sediadministrador.posts.destroy', $post)}}">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger">Eliminar</button>
-                                                </form>
+                                                <a href="#"
+                                                class="btn btn-danger"
+                                                onclick="event.preventDefault();
+                                                document.getElementById('delete_post_{{$post->id}}').submit()">
+                                                    Eliminar</a>
                                             </div>
                                         </div>
                                     </div>
@@ -130,6 +144,11 @@ referrerpolicy="origin"></script>
                         <!--end row-->
                     </div>
                 </form>
+                <form id="delete_post_{{$post->id}}" action="{{route('sediadministrador.posts.destroy', $post)}}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    
+                                                </form>
             </div>
         </div>
 
@@ -141,6 +160,7 @@ referrerpolicy="origin"></script>
 
 @section("script")
 <script src="{{asset('admin_dashboard/plugins/select2/js/select2.min.js')}}"></script>
+<script src="{{asset('admin_dashboard/plugins/input-tags/js/tagsinput.js')}}"></script>
 
 <script>
 

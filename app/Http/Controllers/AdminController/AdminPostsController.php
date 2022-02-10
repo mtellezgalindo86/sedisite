@@ -5,6 +5,7 @@ namespace App\Http\Controllers\AdminController;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class AdminPostsController extends Controller
@@ -70,6 +71,14 @@ class AdminPostsController extends Controller
                 'path' => $path
             ]);
         }
+        $tags = explode(',',$request->input('tags'));
+        $tags_ids = [];
+        foreach ($tags as $tag) {
+            $tag_ob = Tag::create(['name' => $tag]);
+            $tags_ids[] = $tag_ob->id;
+        }
+        if(count($tags_ids)>0)
+            $post->tags()->sync($tags_ids);
         return redirect()->route('sediadministrador.posts.create')->with('success', 'El post ha sido creado');
     }
 
@@ -93,8 +102,16 @@ class AdminPostsController extends Controller
     public function edit(Post $post)
     {
         //
+        $tags = '';
+        foreach ($post->tags as $key => $tag) {
+            $tags .= $tag->name .',';
+            if($key !== count($post->tags) -1 )
+                $tags .= ', ';
+
+        }
         return view('admin_dashboard.posts.edit',[
             'post'=> $post,
+            'tags'=> $tags,
             'categories'=> Category::pluck('name','id')
         ]);
     }
@@ -124,6 +141,15 @@ class AdminPostsController extends Controller
                 'path' => $path
             ]);
         }
+        $tags = explode(',',$request->input('tags'));
+        $tags_ids = [];
+        foreach ($tags as $tag) {
+            $tag_ob = Tag::create(['name' => $tag]);
+            $tags_ids[] = $tag_ob->id;
+        }
+        if(count($tags_ids)>0)
+            $post->tags()->sync($tags_ids);
+
         return redirect()->route('sediadministrador.posts.edit', $post)->with('success', 'El post ha sido actualizado');
 
     }

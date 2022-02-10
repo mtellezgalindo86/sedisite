@@ -4,6 +4,8 @@
 <link href="{{asset('admin_dashboard/plugins/Drag-And-Drop/dist/imageuploadify.min.css')}}" rel="stylesheet" />
 <link href="{{asset('admin_dashboard/plugins/select2/css/select2.min.css')}}" rel="stylesheet" />
 <link href="{{asset('admin_dashboard/plugins/select2/css/select2-bootstrap4.css')}}" rel="stylesheet" />
+<link href="{{asset('admin_dashboard/plugins/input-tags/css/tagsinput.css')}}" rel="stylesheet" />
+
 <script src="https://cdn.tiny.cloud/1/049cbc9th46j9z79vcr32zy3h680sweynpzmfkosfv1fdx2o/tinymce/5/tinymce.min.js" 
 referrerpolicy="origin"></script>
 <style>
@@ -88,6 +90,18 @@ referrerpolicy="origin"></script>
                                     <div class="mb-3">
                                         <div class="card">
                                             <div class="card-body">
+                                                <div class="border p-3 rounded">
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Tags</label>
+                                                        <input type="text" class="form-control" data-role="tagsinput" name="tags">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="card">
+                                            <div class="card-body">
                                             <label for="inputProductDescription" class="form-label">Miniatura de post</label>
                                             <input id="thumbnail" required  name="thumbnail" id="file" type="file" >
                                             @error('thumbnail')
@@ -127,6 +141,8 @@ referrerpolicy="origin"></script>
 @section("script")
 <script src="{{asset('admin_dashboard/plugins/Drag-And-Drop/dist/imageuploadify.min.js')}}"></script>
 <script src="{{asset('admin_dashboard/plugins/select2/js/select2.min.js')}}"></script>
+<script src="{{asset('admin_dashboard/plugins/input-tags/js/tagsinput.js')}}"></script>
+
 
 <script>
     $(document).ready(function() {
