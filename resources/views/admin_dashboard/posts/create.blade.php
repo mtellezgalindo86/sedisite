@@ -99,7 +99,7 @@ referrerpolicy="origin"></script>
                                     </div>
                                     <div class="mb-3">
                                         <label for="inputProductDescription" class="form-label">Texto</label>
-                                        <textarea class="form-control" name="body" id="post_content" rows="3"> {{old("excerpt")}}</textarea>
+                                        <textarea class="form-control" name="body" id="post_content" rows="3"> {{old("body")}}</textarea>
                                         @error('body')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror

@@ -39,7 +39,8 @@ class DatabaseSeeder extends Seeder
         }
 
 
-        \App\Models\Category::factory(5)->create();
+        \App\Models\Category::factory(3)->create();
+        \App\Models\Category::factory()->create(['name'=>'Sin categoria']);
         $posts = \App\Models\Post::factory(103)->create();
         \App\Models\Comment::factory(10)->create();
         \App\Models\Tag::factory(5)->create();
