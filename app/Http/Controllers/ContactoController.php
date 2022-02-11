@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ContactUser;
 use Illuminate\Http\Request;
 use SEO;
 class ContactoController extends Controller
@@ -25,7 +26,7 @@ class ContactoController extends Controller
     public function postContact(Request $request){
 
 
-        $contact = new ContactUser;
+        $contact = new ContactUser();
         $contact->name = $request->name;
         $contact->email = $request->email;
         $contact->phone = $request->phone_number;

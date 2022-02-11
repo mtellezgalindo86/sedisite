@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Alaouy\Youtube\Facades\Youtube;
 
 use Illuminate\Http\Request;
 use SEO;
@@ -30,4 +31,4 @@ class VideotecaController extends Controller
         return view('videoteca.videoteca')->with("videos",$errors);
     }
 }
-}
+
