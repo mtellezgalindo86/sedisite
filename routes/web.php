@@ -18,6 +18,7 @@ use App\Http\Controllers\AdminController\DashboardController;
 use App\Http\Controllers\AdminController\AdminPostsController;
 use App\Http\Controllers\AdminController\TinyMCEController;
 use App\Http\Controllers\AdminController\AdminCategoriesController;
+use App\Http\Controllers\AdminController\AdminContactoController;
 use App\Http\Controllers\AdminController\AdminRoles;
 use App\Http\Controllers\AdminController\AdminTagController;
 use App\Http\Controllers\AdminController\AdminUserController;
@@ -87,4 +88,6 @@ Route::name('sediadministrador.')->prefix('sediadministrador')->middleware(['aut
     Route::resource('/roles', AdminRoles::class)->except('show');
     Route::resource('/users', AdminUserController::class);
     
+    Route::get('/update-contact/{id}', [AdminContactoController::class, 'updateContacto'])->name('update-contact');
+    Route::get('/get-list', [AdminContactoController::class, 'index'])->name('get-list');
 });
