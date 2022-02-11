@@ -18,6 +18,8 @@ use App\Http\Controllers\AdminController\DashboardController;
 use App\Http\Controllers\AdminController\AdminPostsController;
 use App\Http\Controllers\AdminController\TinyMCEController;
 use App\Http\Controllers\AdminController\AdminCategoriesController;
+use App\Http\Controllers\AdminController\AdminRoles;
+use App\Http\Controllers\AdminController\AdminTagController;
 
 //home
 Route::get('/', [WelcomeController::class, 'index'])->name('home');
@@ -75,10 +77,12 @@ Route::get('/gracias', [ContactoController::class,'thankyou'])->name('gracias');
 
 require __DIR__.'/auth.php';
 
-Route::name('sediadministrador.')->prefix('sediadministrador')->middleware(['auth','isadmin'])->group(function(){
+Route::name('sediadministrador.')->prefix('sediadministrador')->middleware(['auth','isadmin', 'check_permissions'])->group(function(){
     Route::get('/',[DashboardController::class, 'index'])->name('index');
     Route::post('/upload_tintymce_image', [TinyMCEController::class, 'upload_tinymce_image'])->name('upload_tinymce_image');
     Route::resource('/posts', AdminPostsController::class);
     Route::resource('/categories', AdminCategoriesController::class);
+    Route::resource('/tags', AdminTagController::class)->only(['index','show','destroy']);
+    Route::resource('/roles', AdminRoles::class)->except('show');
     
 });

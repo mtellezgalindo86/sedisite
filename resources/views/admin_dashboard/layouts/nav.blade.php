@@ -49,6 +49,27 @@
                         
                     </ul>
                 </li>
+                <li>
+                    <a href="{{ route('sediadministrador.tags.index') }}" >
+                    <div class="parent-icon"><i class='bx bx-purchase-tag'></i></div>
+                        <div class="menu-title">Listado de tags</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="has-arrow">
+                        <div class="parent-icon"><i class='bx bx-key'></i>
+                        </div>
+                        <div class="menu-title">Roles</div>
+                    </a>
+
+                    <ul>
+                        <li> <a href="{{ route('sediadministrador.roles.index') }}"><i class="bx bx-right-arrow-alt"></i>Todos los roles</a>
+                        </li>
+                        <li> <a href="{{ route('sediadministrador.roles.create') }}"><i class="bx bx-right-arrow-alt"></i>Agregar nuevo rol</a>
+                        </li>
+                        
+                    </ul>
+                </li>
             </ul>
             <!--end navigation-->
         </div>

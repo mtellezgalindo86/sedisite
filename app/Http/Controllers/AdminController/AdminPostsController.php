@@ -144,11 +144,14 @@ class AdminPostsController extends Controller
         $tags = explode(',',$request->input('tags'));
         $tags_ids = [];
         foreach ($tags as $tag) {
-            $tag_ob = Tag::create(['name' => $tag]);
-            $tags_ids[] = $tag_ob->id;
+            $tag_exist = $post->tags()->where('name', trim($tag) )->count();
+            if($tag_exist == 0) {
+                $tag_ob = Tag::create(['name' => $tag]);
+                $tags_ids[] = $tag_ob->id;
+            }
         }
         if(count($tags_ids)>0)
-            $post->tags()->sync($tags_ids);
+            $post->tags()->syncWithoutDetaching($tags_ids);
 
         return redirect()->route('sediadministrador.posts.edit', $post)->with('success', 'El post ha sido actualizado');
 
@@ -163,6 +166,7 @@ class AdminPostsController extends Controller
     public function destroy(Post $post)
     {
         //
+        $post->tags()->delete();
         $post->delete();
         return redirect()->route('sediadministrador.posts.index')->with('success','El post ha sido eliminado');
     }

@@ -144,7 +144,7 @@ referrerpolicy="origin"></script>
                         <!--end row-->
                     </div>
                 </form>
-                <form id="delete_post_{{$post->id}}" action="{{route('sediadministrador.posts.destroy', $post)}}">
+                <form id="delete_post_{{$post->id}}"method="post" action="{{route('sediadministrador.posts.destroy', $post)}}">
                                                     @csrf
                                                     @method('DELETE')
                                                     
