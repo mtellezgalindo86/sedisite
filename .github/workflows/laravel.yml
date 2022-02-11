@@ -29,4 +29,11 @@ jobs:
       run: |
         mkdir -p database
         touch database/database.sqlite
+    - name: Node
+      run: |
+        npm install
+        npm run prod
+
+    - name: Artefact zip
+      run: tar -czf app.tar.gz --exclude=*.git --exclude=node_modules *
     
