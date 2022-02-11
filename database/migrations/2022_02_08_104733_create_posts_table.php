@@ -19,9 +19,11 @@ class CreatePostsTable extends Migration
             $table->string('slug')->unique();
             $table->string('excerpt');
             $table->text('body');
-            
-            $table->foreignId('category_id');
+
             $table->foreignId('user_id');
+            $table->foreignId('category_id');
+
+            $table->integer('views')->default(0);
             $table->string('status')->default('publicado');
             $table->timestamps();
         });

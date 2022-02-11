@@ -13,7 +13,7 @@
             <!--navigation-->
             <ul class="metismenu" id="menu">
                 <li>
-                    <a href="{{ url('index') }}" target="_blank">
+                    <a href="{{ route('sediadministrador.index') }}" >
                     <div class="parent-icon"><i class='bx bx-home-circle'></i></div>
                         <div class="menu-title">Dashboard</div>
                     </a>
@@ -66,6 +66,21 @@
                         <li> <a href="{{ route('sediadministrador.roles.index') }}"><i class="bx bx-right-arrow-alt"></i>Todos los roles</a>
                         </li>
                         <li> <a href="{{ route('sediadministrador.roles.create') }}"><i class="bx bx-right-arrow-alt"></i>Agregar nuevo rol</a>
+                        </li>
+                        
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;" class="has-arrow">
+                        <div class="parent-icon"><i class='bx bx-user'></i>
+                        </div>
+                        <div class="menu-title">Usuarios</div>
+                    </a>
+
+                    <ul>
+                        <li> <a href="{{ route('sediadministrador.users.index') }}"><i class="bx bx-right-arrow-alt"></i>Todos los usuarios</a>
+                        </li>
+                        <li> <a href="{{ route('sediadministrador.users.create') }}"><i class="bx bx-right-arrow-alt"></i>Agregar nuevo usuario</a>
                         </li>
                         
                     </ul>
