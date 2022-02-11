@@ -87,7 +87,7 @@
                 </li>
                 <li>
                     <a href="{{ route('sediadministrador.get-list') }}" >
-                    <div class="parent-icon"><i class='bx bx-purchase-tag'></i></div>
+                    <div class="parent-icon"><i class='bx bx-phone-outgoing'></i></div>
                         <div class="menu-title">Listado de Contactos</div>
                     </a>
                 </li>
