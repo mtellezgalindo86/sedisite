@@ -35,5 +35,14 @@ jobs:
         npm run prod
 
     - name: Artefact zip
+      env:
+        GITHUB_SHA: ${{github.sha}}
+
       run: tar -czf app.tar.gz --exclude=*.git --exclude=node_modules *
+
+    - name: Store artefact
+      uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
+      with:
+        name: app-build
+        path: ${{github.sha}}.tar.gz
     
