@@ -16,16 +16,16 @@
                     <p class="text-blue-sedi"> En SEDI atendemos de manera individual las necesidades de cada familia ofreciéndoles:
                         <div class="tab class-details-tab">
 
-                            <ul class="requirements-list text-blue-sedi">
+                            <ul class=" text-blue-sedi">
 
-                                <li>
-                                    <i class='bx bx-check'></i>
+                                <li >
+                                    <i class=''></i>
                                     Servicio todo el año para todas las edades que atendemos
                                 </li>
                                 <li>
-                                    <i class='bx bx-check'></i>
+                                    <i class=''></i>
                                     Servicio de guardería y kínder para niños de 1 a 6 años
-                                    <ul class="requirements-list">
+                                    <ul class="requirements-list" style="list-style: none;">
                                         <li>
                                             <i class='bx bx-check'></i>
                                             de 7am a 7:45 pm (Guardería y Kínder)
