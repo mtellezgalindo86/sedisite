@@ -70,13 +70,13 @@ Route::get('/videoteca',[VideotecaController::class,'getlist'])->name('videoteca
 //Contacto
 Route::get('/contacto', [ContactoController::class,'contacto'])->name('contacto');
 Route::post('/post-contact', [ContactoController::class,'postContact'])->name('post-contact');
-Route::get('/gracias', [ContactoController::class,'thankyou'])->name('gracias');
+Route::get('/gracias', [ContactoController::class,'thankyou'])->name('gracias'); 
 
 
 
 
 
-
+//admin
 require __DIR__.'/auth.php';
 
 Route::name('sediadministrador.')->prefix('sediadministrador')->middleware(['auth', 'check_permissions'])->group(function(){

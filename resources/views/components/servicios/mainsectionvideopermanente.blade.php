@@ -3,7 +3,7 @@
         <div class="row align-items-center">
             <div class="col-lg-6">
                 <div class="who-we-are-content">
-                    <h3> <label class="newtitle">Servicios de Video permanente y en tiempo real por Internet</label></h3>
+                    <h3> <label class="newtitle">Servicios de video permanente y en tiempo real por internet</label></h3>
                     <p class="text-justify text-blue-sedi">
                         Orgullosamente les compartimos que fuimos el primer Centro de Desarrollo Infantil de México que instaló cámaras para transmisión de video por Internet, ofreciéndoles este servicio desde el año 2000.
                     </p>
