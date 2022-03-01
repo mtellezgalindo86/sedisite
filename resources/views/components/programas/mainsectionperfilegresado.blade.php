@@ -12,10 +12,10 @@
                                 <strong>Actúa con disciplina personal, con buenos habitos de sueño, higiene, alimentación y actividad física</strong>
                             </li>
                             <li>
-                                <strong>Cuenta con habilidades emocionales y de socialización, que le permiten regular de sus emociones e interactuar con otros niños y adultos eficientemente</strong>
+                                <strong>Cuenta con habilidades emocionales y de socialización, que le permiten regular sus emociones e interactuar con otros niños y adultos eficientemente</strong>
                             </li>
                             <li>
-                                <strong>Es respetoso y adaptable a distintos entornos y cultura, pues cuenta con experiencias cotidianas con niños de otros países, culturas, necesidades y capacidades</strong>
+                                <strong>Es respetuoso y adaptable a distintos entornos y cultura, pues cuenta con experiencias cotidianas con niños de otros países, culturas, necesidades y capacidades</strong>
                             </li>
                             <li>
                                 <strong>Respeta el medio ambiente y promueve la protección de la Naturaleza</strong>
