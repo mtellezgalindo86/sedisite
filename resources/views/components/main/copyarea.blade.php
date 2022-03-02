@@ -3,7 +3,7 @@
     <div class="container">
         <div class="copyright-area-content">
             <p>
-                Copyright © 2021 License Envato Ketan. All Rights Reserved by SEDI 2021
+                Copyright © 2021 All Rights Reserved by SEDI 2021
             </p>
         </div>
     </div>
