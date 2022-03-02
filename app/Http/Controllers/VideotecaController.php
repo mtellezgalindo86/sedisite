@@ -17,7 +17,7 @@ class VideotecaController extends Controller
         SEO::twitter()->setSite('@SediEDU');
 
         $API_key    = "AIzaSyDGE-GP_31UCpgCjpHmFRkdyuFltQsiYgU";
-        $channelID  = "UCCg3riCO_xRN6i-jzlsiDEQ";
+        $channelID  = "UC9qQ1zMSMy87xF-rnHbTN8Q";
         $maxResults = 60;
         Youtube::setApiKey($API_key);
         $videoList = Youtube::listChannelVideos($channelID, $maxResults);
