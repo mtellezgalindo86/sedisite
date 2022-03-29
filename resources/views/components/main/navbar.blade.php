@@ -211,7 +211,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="https://sedicomm.ipower.com/camnavalt.html" target="_blank" class="nav-link">
+                            <a href="https://sedicomm.ipower.com/authmain.php" target="_blank" class="nav-link">
                                 Verte crecer
                             </a>
                         </li>
