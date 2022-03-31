@@ -25,5 +25,13 @@
 <link rel="stylesheet" href="{{'../assets/css/responsive.css'}}">
 
 <title>SEDI</title>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M527DH0FMR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-M527DH0FMR');
+</script>
 <link rel="icon" type="image/png" href="{{'../assets/img/favicon-16x16.png'}}">
