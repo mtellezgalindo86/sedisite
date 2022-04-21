@@ -10,8 +10,8 @@
                         </h2>
                     </div>
                     <p>
-                        En <label class="newtitle">SEDI</label> contamos con un servicio diurno para niños desde 42 días de nacidos hasta 6 años en un horario de 7 am a 7:45 pm
-                        y un programa de Afterschool para niños de hasta 9 años en un horario de 12:30 a 7:45 pm. ** "Horario por pandemia" hasta las 5:30 pm
+                        En <label class="newtitle">SEDI</label> contamos con un servicio diurno para niños desde 42 días de nacidos hasta 6 años en un horario de 7:00 am a 7:00 pm
+                        y un programa de Afterschool para niños de hasta 9 años en un horario de 12:30 a 7:00 pm.
                     </p>
                     <ul class="social">
                         <li>
