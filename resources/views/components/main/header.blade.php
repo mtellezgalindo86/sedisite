@@ -34,4 +34,4 @@
 
   gtag('config', 'G-M527DH0FMR');
 </script>
-<link rel="icon" type="image/png" href="{{'../assets/img/favicon-16x16.png'}}">
+
