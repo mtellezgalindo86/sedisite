@@ -16,14 +16,14 @@
         <div  id="popups">
             <div id="small-dialog" class="zoom-anim-dialog mfp-hide text-center" style="background-color:white">
                 
-                <img src="assets/img/banners/curso_de_verano.jpeg" width="40%"  alt="">    
+                <img src="assets/img/banners/curso_de_verano.jpeg" width="60%"  alt="">    
                 <div class="option-item pt-5">
                     <a href="informacion/Bienvenida_e_introduccion_Curso_de_Verano_2022.pdf" class="default-btn">Ver más</a>
                 </div>
             </div>
             <div id="small-dialog-after" class="zoom-anim-dialog mfp-hide text-center" style="background-color:white">
             
-                <img src="assets/img/banners/after_school.jpeg" width="40%"  alt="">    
+                <img src="assets/img/banners/after_school.jpeg" width="60%"  alt="">    
                 <div class="option-item pt-5">
                     <a href="informacion/Afterschool_Clientes_Potenciales.pdf" class="default-btn">Ver más</a>
                 </div>
