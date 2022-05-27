@@ -243,5 +243,29 @@ jQuery(function ($) {
             $('.preloader').fadeOut();
             $('.preloader-area').addClass('preloader-deactivate');
         });
+
+
+		$(function () {
+			var myEle = document.getElementById("popups");
+			if(myEle){
+				$.magnificPopup.open({
+					items: [
+						{
+							src: '#small-dialog' ,
+							type:'inline'
+						},
+						{
+							src: '#small-dialog-after',
+							type:'inline'
+						}
+					],
+					gallery: {
+						enabled: true
+					},
+				});
+			}
+			
+		});
+		
         
 }(jQuery));
