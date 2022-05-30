@@ -20,6 +20,11 @@
                 <div class="option-item pt-5">
                     <a href="informacion/Bienvenida_e_introduccion_Curso_de_Verano_2022.pdf" class="default-btn">Ver más</a>
                 </div>
+                <div>
+                    <p>
+                        <span class="newtitle"><strong>Pregunta por fechas adicionales</strong></span>
+                    </p>
+                </div>
             </div>
             <div id="small-dialog-after" class="zoom-anim-dialog mfp-hide text-center" style="background-color:white">
             
