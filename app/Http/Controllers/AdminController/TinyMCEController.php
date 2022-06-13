@@ -9,17 +9,17 @@ class TinyMCEController extends Controller
 {
     //
     public function upload_tinymce_image(Request $request){
-       // dd($request->file('file'));
+
        $imageFolder = "images/";
-       reset ($_FILES);
+
        $temp = current($_FILES);
        if (is_uploaded_file($temp['tmp_name'])){
            /*
            If your script needs to receive cookies, set images_upload_credentials : true in
            the configuration and enable the following two headers.
            */
-           // header('Access-Control-Allow-Credentials: true');
-           // header('P3P: CP="There is no P3P policy."');
+            header('Access-Control-Allow-Credentials: true');
+            header('P3P: CP="There is no P3P policy."');
 
            // Sanitize input
            if (preg_match("/([^\w\s\d\-_~,;:\[\]\(\).])|([\.]{2,})/", $temp['name'])) {
