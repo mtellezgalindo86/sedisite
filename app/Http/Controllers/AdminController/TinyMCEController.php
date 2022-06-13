@@ -28,7 +28,7 @@ class TinyMCEController extends Controller
            }
 
            // Verify extension
-           if (!in_array(strtolower(pathinfo($temp['name'], PATHINFO_EXTENSION)), array("gif", "jpg", "png"))) {
+           if (!in_array(strtolower(pathinfo($temp['name'], PATHINFO_EXTENSION)), array("gif", "jpg", "png", "jpeg"))) {
                header("HTTP/1.1 400 Invalid extension.");
                return;
            }
@@ -44,7 +44,7 @@ class TinyMCEController extends Controller
            // Respond to the successful upload with JSON.
            // Use a location key to specify the path to the saved image resource.
            // { location : '/your/uploaded/image/file'}
-           
+
            echo json_encode(array('location' => '/' . $filetowrite));
        } else {
            // Notify editor that the upload failed
