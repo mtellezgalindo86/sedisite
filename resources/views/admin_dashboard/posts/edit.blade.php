@@ -5,8 +5,7 @@
 <link href="{{asset('admin_dashboard/plugins/select2/css/select2-bootstrap4.css')}}" rel="stylesheet" />
 <link href="{{asset('admin_dashboard/plugins/input-tags/css/tagsinput.css')}}" rel="stylesheet" />
 
-<script src="https://cdn.tiny.cloud/1/049cbc9th46j9z79vcr32zy3h680sweynpzmfkosfv1fdx2o/tinymce/5/tinymce.min.js" 
-referrerpolicy="origin"></script>
+<script src="https://cdn.tiny.cloud/1/049cbc9th46j9z79vcr32zy3h680sweynpzmfkosfv1fdx2o/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
 @endsection
 
@@ -64,7 +63,7 @@ referrerpolicy="origin"></script>
                                     <div class="mb-3">
                                         <label for="inputProductDescription" class="form-label">Post categoria</label>
                                         <div class="card">
-                                            <div class="card-body"> 
+                                            <div class="card-body">
                                                 <div class="border p-3 rounded">
                                                     <div class="mb-3">
                                                         <label class="form-label"></label>
@@ -111,8 +110,8 @@ referrerpolicy="origin"></script>
                                                 <img src="{{asset('storage/'.$post->image->path.'')}}" width="100%" class="img-responsive" alt="">
                                             </div>
                                         </div>
-                                        
-                                        
+
+
                                     </div>
                                     <div class="mb-3">
                                         <label for="inputProductDescription" class="form-label">Texto</label>
@@ -147,7 +146,7 @@ referrerpolicy="origin"></script>
                 <form id="delete_post_{{$post->id}}"method="post" action="{{route('sediadministrador.posts.destroy', $post)}}">
                                                     @csrf
                                                     @method('DELETE')
-                                                    
+
                                                 </form>
             </div>
         </div>
@@ -233,7 +232,7 @@ referrerpolicy="origin"></script>
             };
             input.click();
         }
-       
+
 
     });
     setTimeout(()=>{
