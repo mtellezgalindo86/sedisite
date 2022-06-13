@@ -6,8 +6,7 @@
 <link href="{{asset('admin_dashboard/plugins/select2/css/select2-bootstrap4.css')}}" rel="stylesheet" />
 <link href="{{asset('admin_dashboard/plugins/input-tags/css/tagsinput.css')}}" rel="stylesheet" />
 
-<script src="https://cdn.tiny.cloud/1/049cbc9th46j9z79vcr32zy3h680sweynpzmfkosfv1fdx2o/tinymce/5/tinymce.min.js" 
-referrerpolicy="origin"></script>
+<script src="https://cdn.tiny.cloud/1/049cbc9th46j9z79vcr32zy3h680sweynpzmfkosfv1fdx2o/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <style>
     .imageuploadify{
         margin: 0;
@@ -109,7 +108,7 @@ referrerpolicy="origin"></script>
                                             @enderror
                                             </div>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="mb-3">
                                         <label for="inputProductDescription" class="form-label">Texto</label>
@@ -156,6 +155,7 @@ referrerpolicy="origin"></script>
     });
     tinymce.init({
     selector: 'textarea#post_content',// Replace this CSS selector to match the placeholder element for TinyMCE
+    deprecation_warnings: false,
     skin: 'oxide',
     plugins: [
         'advlist autolink lists link image charmap print preview anchor',
@@ -186,6 +186,7 @@ referrerpolicy="origin"></script>
                     failure('HTTP Error: ' + xhr.status);
                     return;
                 }
+                console.log(xhr.responseText);
                 json = JSON.parse(xhr.responseText);
 
                 if (!json || typeof json.location != 'string') {
@@ -202,6 +203,7 @@ referrerpolicy="origin"></script>
         },
         file_picker_callback: function(cb, value, meta) {
 
+            console.log("cb");
             console.log(cb);
             var input = document.createElement('input');
             input.setAttribute('type', 'file');
@@ -217,7 +219,7 @@ referrerpolicy="origin"></script>
             };
             input.click();
         }
-       
+
 
     });
     setTimeout(()=>{
