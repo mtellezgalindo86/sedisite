@@ -11,13 +11,14 @@ class BlogController extends Controller
     //
     public function index()
     {
-        
+
         $posts = Post::paginate(12);
+        dd($posts);
         return view('blog.blog')->with('posts',$posts);
     }
 
     public function show(Post $post)
-    {   
+    {
         $categories = Category::latest()->take(6)->get();
         $recent_posts = Post::latest()->take(6)->get();
         $tags = Tag::all();
