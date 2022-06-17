@@ -26,9 +26,6 @@
                     <h4><label class="newtitle">No hay post por mostrar</label></h4>
                 @else
                     @foreach ($posts as $post)
-                    @php
-                        print_r($post);
-                    @endphp
                     <div class="col-lg-4 col-md-6">
                         <div class="single-blog-item">
                             <div class="blog-image">
