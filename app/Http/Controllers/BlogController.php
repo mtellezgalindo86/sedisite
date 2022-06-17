@@ -11,7 +11,7 @@ class BlogController extends Controller
     //
     public function index()
     {
-
+        set_time_limit(0);
         $posts = Post::paginate(10);
         return view('blog.blog')->with('posts',$posts);
     }
