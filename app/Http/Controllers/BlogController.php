@@ -13,7 +13,6 @@ class BlogController extends Controller
     {
 
         $posts = Post::paginate(12);
-        dd($posts);
         return view('blog.blog')->with('posts',$posts);
     }
 
