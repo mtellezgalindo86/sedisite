@@ -27,7 +27,7 @@
                 @else
                     @foreach ($posts as $post)
                     @php
-                        dd($post)
+                        print_r($post);
                     @endphp
                     <div class="col-lg-4 col-md-6">
                         <div class="single-blog-item">
