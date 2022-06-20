@@ -46,9 +46,9 @@
                                     </li>
                                 </ul>
                                 <h3>
-                                    <a href="#">{{\Str::limit($post->title, 20)}}</a>
+                                    <a href="#">{!!$post->title!!}</a>
                                 </h3>
-                                <p>{{\Str::limit($post->excerpt, 30)}}</p>
+                                <p>{!!$post->excerpt!!}</p>
 
                                 <div class="blog-btn">
                                     <a href="{{route('posts.show', $post)}}" class="default-btn">Leer...</a>
