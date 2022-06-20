@@ -46,7 +46,7 @@
                                     </li>
                                 </ul>
                                 <h3>
-                                    <a href="#">{!!$post->title!!}</a>
+                                    <a href="{{route('posts.show', $post)}}">{!!$post->title!!}</a>
                                 </h3>
                                 <p>{!!$post->excerpt!!}</p>
 
